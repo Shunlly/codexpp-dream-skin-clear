@@ -27,8 +27,8 @@
       const p = cfg.panel / 100, a = cfg.panelAlt / 100;
       css += `html[data-dream-skin=active]{--ds-upload-panel-alpha:${p} !important;--ds-upload-bg-alpha:${p} !important;--ds-upload-panel-alt-alpha:${a} !important;}`;
     }
-    if (cfg.hideName) css += `[data-ds-part="home-hero"]::before{display:none !important;content:none !important;}`;
-    if (cfg.hideTagline) css += `[data-ds-part="home-hero"]::after{display:none !important;content:none !important;}`;
+    if (cfg.hideName) css += `[data-ds-part="home-hero"]::before,[data-ds-part="project-list"]::before{display:none !important;content:none !important;}`;
+    if (cfg.hideTagline) css += `[data-ds-part="home-hero"]::after,[data-ds-part="project-list"]::after{display:none !important;content:none !important;}`;
     let s = document.getElementById(STYLE_ID);
     if (!css) { s?.remove(); return; }
     if (!s) {
