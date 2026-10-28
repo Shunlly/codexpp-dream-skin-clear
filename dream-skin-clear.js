@@ -12,6 +12,7 @@
     { id: "panel", type: "range", label: "主面板透明度", desc: "盖在背景图上的白色面板。0 = 完全看原图，100 = 原版白板", def: 15, min: 0, max: 100 },
     { id: "hideName", type: "toggle", label: "隐藏主题名", desc: "隐藏首页标题上方的主题名字（如「IU 花嫁」）", def: false },
     { id: "hideTagline", type: "toggle", label: "隐藏主题标语", desc: "隐藏首页标题下方的一行说明文字", def: false },
+    { id: "hideHeaderBar", type: "toggle", label: "隐藏顶栏遮罩", desc: "去掉对话页顶部那条半透明白条（滚动时会闪烁）", def: true },
     { id: "panelAlt", type: "range", label: "次级面板透明度", desc: "侧栏、卡片等次级面板", def: 20, min: 0, max: 100 },
   ];
   const load = () => {
@@ -29,6 +30,7 @@
     }
     if (cfg.hideName) css += `[data-ds-part="home-hero"]::before,[data-ds-part="project-list"]::before{display:none !important;content:none !important;}`;
     if (cfg.hideTagline) css += `[data-ds-part="home-hero"]::after,[data-ds-part="project-list"]::after{display:none !important;content:none !important;}`;
+    if (cfg.hideHeaderBar) css += `[data-ds-part="header"]::after{display:none !important;content:none !important;}`;
     let s = document.getElementById(STYLE_ID);
     if (!css) { s?.remove(); return; }
     if (!s) {
